@@ -1,0 +1,109 @@
+funcion factorial(n){
+    evaluar (n == 0){
+        emitir 1
+    }
+    evaluar_denuevo {
+        emitir (n * factorial(n-1))
+    }
+}
+
+funcion primeros100primos(){
+    primos = []
+    num = 2
+    receta (primos.tam() << 100){
+        esprimo = Positivo
+        divisor = 2
+        receta (divisor <= entero(raiz(num))){
+            evaluar ((num % divisor) == 0){
+                esprimo = Negativo
+            }
+            divisor = divisor +1
+        }
+        evaluar (esprimo == Positivo){
+            primos.agregar(num)
+        }
+        num = num + 1
+    }
+    emitir primos
+}
+primos100 = primeros100primos()
+
+monitoreo (j=0; j<=13; j = j+1){
+preescripcion("El factorial del numero primo es: ", factorial(primos100[j]))
+}
+
+
+matrizA = [[]]
+monitoreo (a = 0; a<=50; a = a+1){
+monitoreo(a1 = 0; a1 <= 50; a1 = a1+1){
+columna = matrizA[a]
+columna.agregar(a1)
+}
+matrizA.agregar([])
+}
+matrizA.borrar([])
+
+matrizB = [[]]
+monitoreo (b = 0; b<=50; b = b+1){
+monitoreo(b1 = 0; b1 <= 50; b1 = b1+1){
+columnab = matrizB[b]
+columnab.agregar(b1+10)
+}
+matrizB.agregar([])
+}
+matrizB.borrar([])
+
+matriz1 = tag(matrizA)
+matriz2 = tag(matrizB)
+preescripcion()
+preescripcion(matriz1)
+preescripcion()
+preescripcion(matriz2)
+preescripcion()
+preescripcion("suma de matrices: ", matriz1 + matriz2)
+preescripcion("resta de matrices: ", matriz1 - matriz2)
+preescripcion("multiplicacion de matrices: ", matriz1 * matriz2)
+preescripcion("prodPunto de matrices: ", Punto(matriz1,matriz2))
+
+funcion in (palabrac, llave){
+monitoreo (j=0; j <= llave.tam(); j= j+1){
+evaluar(palabrac == llave[j]){
+emitir Positivo
+}
+}
+emitir Negativo
+}
+count = []
+monitoreo (i = 1; i <= 100; i = i+1){
+count.agregar(i)
+}
+preescripcion(primos100)
+graficas barras_pensalas (count, primos100, "numeros primos",25)
+
+abrir(quijote, "quijote.txt")
+todo = leerTodo( quijote)
+texto = todo.separar()
+preescripcion(texto)
+preescripcion(texto.tam())
+vocabulario = {}
+monitoreo (i=0; i <= (texto.tam()-1); i = i +1){
+palabra = texto[i]
+preescripcion(palabra)
+evaluar (vocabulario.tam() == 0){
+vocabulario[palabra] = 1
+preescripcion("llego aca")
+}
+evaluar_denuevo{
+keys = vocabulario.llaves()
+preescripcion(keys)
+asd = in(palabra, keys)
+evaluar( asd == Positivo){
+z = vocabulario[palabra]
+vocabulario[palabra] = z +1
+}
+evaluar_denuevo{
+vocabulario[palabra] = 1
+}
+}
+}
+preescripcion(vocabulario)

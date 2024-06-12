@@ -1,0 +1,138 @@
+funcion euclides(a,b){
+	evaluar(a<<0){
+		emitir euclides(-a,b)
+	}
+	evaluar(b<<0){
+		emitir euclides(a,-b)
+	}
+	evaluar(b==0){
+		emitir a
+	}
+	emitir euclides(b, a%b)
+}
+
+preescripcion("mcd ",euclides(90,30))
+preescripcion("mcd ",euclides(15,20))
+preescripcion("mcd ",euclides(200,100))
+
+
+funcion esprimo(n){
+	monitoreo (i=2; i<<n; i=i+1){
+		preescripcion(i)
+		preescripcion("ajdslksda",i//2)
+		
+		evaluar((i) == 2){
+			emitir ("aaaaaaaaaaaaaaaaaaa")
+		}
+		
+	}
+	emitir ("ooooooooooooooooo")
+}
+
+preescripcion(esprimo(4))
+
+
+
+count = []
+monitoreo (i = 1; i <= 100; i = i+1){
+count.agregar(i)
+}	
+
+funcion primeros500primos(){
+    primos = []
+    num = 2
+    receta (primos.tam() << 500){
+        esprimo = Positivo
+        divisor = 2
+        receta (divisor <= entero(raiz(num))){
+            evaluar ((num % divisor) == 0){
+                esprimo = Negativo
+            }
+            divisor = divisor +1
+        }
+        evaluar (esprimo == Positivo){
+            primos.agregar(num)
+        }
+        num = num + 1
+    }
+    emitir primos
+}
+primos500 = primeros500primos()
+
+preescripcion(primos500)
+graficas barras_pensalas (count, primos500, "numeros primos",25)
+
+
+
+numeros = [-5.0, -4.9, -4.8, -4.7, -4.6, -4.5, -4.4, -4.3, -4.2, -4.1,-4.0, -3.9, -3.8, -3.7, -3.6, -3.5, -3.4, -3.3, -3.2, -3.1,-3.0, -2.9, -2.8, -2.7, -2.6, -2.5, -2.4, -2.3, -2.2, -2.1,-2.0, -1.9, -1.8, -1.7, -1.6, -1.5, -1.4, -1.3, -1.2, -1.1,-1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1,0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9,1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9,2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9,3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9,4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0]
+
+seno = []
+monitoreo(i=0; i<<numeros.tam(); i=i+1){
+	seno.agregar(sen(numeros[i])*(-1))
+	preescripcion(numeros[i])
+}
+preescripcion(seno)
+graficas linea(numeros, seno)
+
+coseno = []
+monitoreo(i=0; i<<numeros.tam(); i=i+1){
+	coseno.agregar(cos((numeros[i])))
+	preescripcion(numeros[i])
+}
+preescripcion(coseno)
+graficas linea(numeros, coseno)
+
+tangente = []
+monitoreo(i=0; i<<numeros.tam(); i=i+1){
+	tangente.agregar(tan((numeros[i])))
+	preescripcion(numeros[i])
+}
+preescripcion(tangente)
+graficas linea(numeros, tangente)
+
+funcion in (palabrac, llave){
+monitoreo (j=0; j <= llave.tam(); j= j+1){
+evaluar(palabrac == llave[j]){
+emitir Positivo
+}
+}
+emitir Negativo
+}
+
+
+count = []
+monitoreo (i = 1; i <= 100; i = i+1){
+count.agregar(i)
+}
+
+abrir(quijote, "quijote.txt")
+todo = leerTodo( quijote)
+texto = todo.separar()
+preescripcion(texto)
+preescripcion(texto.tam())
+vocabulario = {}
+monitoreo (i=0; i <= (texto.tam()-1); i = i +1){
+palabra = texto[i]
+preescripcion(palabra)
+evaluar (vocabulario.tam() == 0){
+vocabulario[palabra] = 1
+preescripcion("llego aca")
+}
+evaluar_denuevo{
+keys = vocabulario.llaves()
+preescripcion(keys)
+asd = in(palabra, keys)
+evaluar( asd == Positivo){
+z = vocabulario[palabra]
+vocabulario[palabra] = z +1
+}
+evaluar_denuevo{
+vocabulario[palabra] = 1
+}
+}
+}
+preescripcion(vocabulario)
+
+
+
+

@@ -1,0 +1,10 @@
+preescripcion(193)
+preescripcion(entero(2.2))
+a = 8
+b = 6
+preescripcion(a+b*2)
+(1+2)*3
+cos(180)
+preescripcion(sen(180))
+
+
