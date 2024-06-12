@@ -1,5 +1,5 @@
 ##Proyecto final Lenguajes de programación
-##Pre requisitos:
+##Prerequisitos:
 -Python 3
 -Antlr4
 -Conocer reglas de la gramatica (Anatomy.g4)
